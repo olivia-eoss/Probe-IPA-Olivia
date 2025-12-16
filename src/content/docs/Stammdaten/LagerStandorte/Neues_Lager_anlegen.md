@@ -1,0 +1,45 @@
+---
+title: Wie lege ich ein neues Lager an?
+layout: default
+tags:
+  - Stammdaten
+  - Lagerverwaltung
+lang: de
+sequence: 10
+ref: add_new_warehouse
+---
+
+## Schritte
+
+### Lager anlegen
+
+1. [Gehe ins Menü](Menu) und öffne das Fenster "Lager".
+1. [Lege ein neues Lager an](Neuer_Datensatz_Fenster_Webui).
+1. Benenne das Lager im Feld **Name**, z.B. "[Leergebindelager](Leergebindelager_anlegen)".
+1. Je nach Versionsstand trifft einer der folgenden Schritte zu:
+   - **a)** Gib in das Feld **Standort** einen Teil des [Standort](Adresse_erfassen_Tab)namens ein und klicke auf den passenden Treffer in der <a href="Keyboard_Shortcuts_Liste#dropdown" title="Dynamisches Suchfeld (Autocomplete)">Dropdown-Liste</a>.
+   - **b)** **_Optional (Verwaltung von Partnerlagern):_** Entferne im Feld **Lieferant für Beistellung** deine standardmäßig voreingestellte Organisation. Gib anschließend im ersten Eingabebereich der Zeile einen Teil des Namens oder der Nummer des beistellenden [Geschäftspartners](Neuer_Geschaeftspartner) ein und klicke auf den passenden Treffer in der <a href="Keyboard_Shortcuts_Liste#dropdown" title="Dynamisches Suchfeld (Autocomplete)">Dropdown-Liste</a>. Wähle nun auf <a href="Keyboard_Shortcuts_Liste#dropdown" title="Dynamisches Suchfeld (Autocomplete)">die gleiche Weise</a> einen **Standort** im nächsten gleichnamigen Teil der Zeile aus und bei Bedarf auch noch einen **Ansprechpartner**.
+1. Wähle eine **Produktionsstätte** aus, sofern vorhanden.
+
+   > **Hinweis:** Produktionsstätten werden für [Produktplanungen](Produktplandaten) und [automatische Bestellkontrollen](Automatische_Bestellkontrollen) benötigt.
+
+1. **_Optional:_** Wähle eine [**Lagerart**](Lagerart_hinzufuegen) aus.
+
+### <a name="lagerort">Lagerort hinzufügen</a>
+
+1. Gehe zur Registerkarte "Lagerort" unten auf der Seite und klicke auf !["Neu hinzufügen"](assets/Neu_hinzufuegen_Button.png). Es öffnet sich ein Overlay-Fenster.
+1. Trage in die Felder **Gang**, **Regal**, **Ebene** und **Fach** jeweils den Wert _0_ ein.
+1. Klicke auf "Bestätigen", um das Overlay-Fenster zu schließen und den Lagerort zur Liste hinzuzufügen.
+
+### <a name="lagerzuordnung">Lagerzuordnung</a>
+
+Hier kannst Du dem Lager diejenigen Belegarten als **_Dokument-Basistyp_** zuordnen, bei denen das Lager verwendet werden soll, z.B. _Auftrag_, _Bestellung_, _Inventur_, _Wareneingang_ usw.
+
+1. Gehe zur Registerkarte "Lagerzuordnung" unten auf der Seite und klicke auf !["Neu hinzufügen"](assets/Neu_hinzufuegen_Button.png). Es öffnet sich ein Overlay-Fenster.
+1. Wähle einen **Dokument-Basistyp** aus, z.B. _Auftrag_.
+1. Klicke auf "Bestätigen", um das Overlay-Fenster zu schließen und die Zuordnung zur Liste hinzuzufügen.
+   > **Hinweis:** Du kannst beliebig viele Zuordnungen erstellen. Vergleiche dazu den Lagereintrag "Hauptlager", der bereits entsprechend eingerichtet ist.
+
+## Beispiel
+
+<kbd>![GIF: Neues Lager anlegen](assets/Neues_Lager_anlegen.gif)</kbd>

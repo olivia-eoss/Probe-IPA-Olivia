@@ -15,7 +15,7 @@ export default defineConfig({
 				},
 								{
 					label: 'Stammdaten Verwalten',
-					autogenerate: { directory: 'stammdaten' },
+					autogenerate: { directory: 'Stammdaten' },
 				},
 			],
 		}),
