@@ -13,9 +13,17 @@ export default defineConfig({
 					label: 'Einstieg',
 					autogenerate: { directory: 'Einstieg' },
 				},
-								{
+				{
 					label: 'Stammdaten Verwalten',
-					autogenerate: { directory: 'stammdaten' },
+					autogenerate: { directory: 'Stammdaten' },
+				},
+				{
+					label: 'Geschäftsprozesse',
+					autogenerate: { directory: 'Geschaftsprozesse' },
+				},
+				{
+					label: 'Erweiterte Funktionen',
+					autogenerate: { directory: 'ErweiterteFunktionen' },
 				},
 			],
 		}),
