@@ -6,24 +6,41 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'metasfresh Dokumentation',
+      		tableOfContents: false,
+			customCss: ['./src/styles/custom.css'],
+			logo: {
+				src: './src/assets/logo.svg',
+				replacesTitle: true, // Hide the site title
+			},
+
+			locales: {
+				root: {
+				label: 'Deutsch',
+				lang: 'de',
+				}
+			},
+
 			sidebar: [
 				{
-					label: 'Einstieg',
-					autogenerate: { directory: 'Einstieg' },
+				label: 'Einstieg',
+				collapsed: true,
+				autogenerate: { directory: 'Einstieg' },
 				},
 				{
-					label: 'Stammdaten Verwalten',
-					autogenerate: { directory: 'Stammdaten' },
+				label: 'Stammdaten Verwalten',
+				collapsed: true,
+				autogenerate: { directory: 'Stammdaten' },
 				},
 				{
-					label: 'Geschäftsprozesse',
-					autogenerate: { directory: 'Geschaftsprozesse' },
+				label: 'Geschäftsprozesse',
+				collapsed: true,
+				autogenerate: { directory: 'Geschaftsprozesse' },
 				},
 				{
-					label: 'Erweiterte Funktionen',
-					autogenerate: { directory: 'ErweiterteFunktionen' },
+				label: 'Erweiterte Funktionen',
+				collapsed: true,
+				autogenerate: { directory: 'ErweiterteFunktionen' },
 				},
 			],
 		}),
