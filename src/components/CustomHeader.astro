@@ -1,0 +1,16 @@
+---
+import SiteTitle from "@astrojs/starlight/components/SiteTitle.astro";
+import Search from "@astrojs/starlight/components/Search.astro";
+import Button from "./Button.astro";
+---
+
+<div class="ms-header">
+  <div class="ms-left">
+    <SiteTitle />
+  </div>
+
+  <div class="ms-right-group">
+    <Search />
+    <Button href="/kontakt/" variant="orange"> Kontakt </Button>
+  </div>
+</div>
