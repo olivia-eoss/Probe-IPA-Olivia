@@ -1,3 +1,6 @@
+@layer my-reset, starlight, my-overrides;
+
+
 :root {
 
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -26,6 +29,9 @@
     --sl-color-bg-sidebar: var(--brand-grey-100);
 }
 
+@layer my-overrides {
+
+
 body {
   font-family: var(--font-sans);
 }
@@ -53,6 +59,4 @@ body {
   font-size: 16px;
 }
 
-
-
-
+}
