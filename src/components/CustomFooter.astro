@@ -1,0 +1,42 @@
+<footer class="ms-footer">
+  <div class="ms-footer__inner">
+    <div class="ms-footer__left">
+      <strong>metas GmbH</strong><br />
+      Am Nossbacher Weg 2<br />
+      53179 Bonn<br />
+      Telefon +49 (0) 228 – 504436 – 0
+    </div>
+
+    <nav class="ms-footer__right" aria-label="Footer">
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
+      <a href="/kontakt/">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  /* 1) Grüner Balken über ganze Seite */
+  .ms-footer {
+    background: var(--brand-green);
+    color: #fff;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-top: 48px;
+  }
+
+  /* 2) Inhalt sauber zentriert */
+  .ms-footer__inner {
+    margin: 0 auto;
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  /* 3) Wenn Sidebar da ist: links extra Platz, damit Text nicht “unter” Sidebar sitzt */
+  html[data-has-sidebar] .ms-footer__inner {
+    max-width: 1400px;
+  }
+</style>

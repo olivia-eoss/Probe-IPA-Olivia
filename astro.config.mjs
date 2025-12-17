@@ -13,6 +13,11 @@ export default defineConfig({
 				src: './src/assets/logo.svg',
 				replacesTitle: true, // Hide the site title
 			},
+			
+			components: {
+				Header: './src/components/CustomHeader.astro',
+				Footer: "./src/components/CustomFooter.astro",
+			},
 
 			locales: {
 				root: {
@@ -46,3 +51,5 @@ export default defineConfig({
 		}),
 	],
 });
+
+
