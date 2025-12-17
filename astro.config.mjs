@@ -8,6 +8,7 @@ export default defineConfig({
 		starlight({
 			title: 'metasfresh Dokumentation',
       		tableOfContents: false,
+			customCss: ['./src/styles/custom.css'],
 			logo: {
 				src: './src/assets/logo.svg',
 				replacesTitle: true, // Hide the site title

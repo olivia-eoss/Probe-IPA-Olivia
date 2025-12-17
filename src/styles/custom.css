@@ -1,0 +1,58 @@
+:root {
+
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Deine Brand-Farben */
+    --brand-green: #74B727;
+    --brand-orange: #F79621;
+    --brand-white: #FFFFFF;
+    --brand-grey-100: #EDEDED;
+    --brand-black: #373737;
+
+    /* Transparenzen */
+    --brand-green-37: rgba(116, 183, 39, 0.37); /* #74B727 bei 37% */
+    --brand-orange-36: rgba(247, 150, 33, 0.36); /* #F79621 bei 36% */
+
+    /* Starlight Theme-Variablen (Light) */
+    --sl-color-accent: var(--brand-green);
+    --sl-color-accent-high: var(--brand-green);
+    --sl-color-accent-low: var(--brand-green-37);
+
+    --sl-color-text: var(--brand-black);
+    --sl-color-text-accent: var(--brand-green);
+
+    --sl-color-bg: var(--brand-white);
+    --sl-color-bg-nav: var(--brand-white);
+    --sl-color-bg-sidebar: var(--brand-grey-100);
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.sl-markdown-content h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.sl-markdown-content h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.sl-markdown-content h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.sl-markdown-content p {
+  font-size: 18px;
+}
+
+.sl-markdown-content small {
+  font-size: 16px;
+}
+
+
+
+
