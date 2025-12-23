@@ -17,6 +17,7 @@ export default defineConfig({
 			components: {
 				Header: './src/components/CustomHeader.astro',
 				Footer: "./src/components/CustomFooter.astro",
+				Hero: "./src/components/CustomHero.astro",
 			},
 
 			locales: {
