@@ -152,6 +152,11 @@ p {
     color: var(--brand-orange);
   }
 
+    .ms-btn--green.hover {
+    background: var(--brand-green-37);
+    color: var(--brand-green);
+  }
+
   .ms-btn--white:hover {
     background: var(--brand-orange-36);
     color: var(--brand-orange);
