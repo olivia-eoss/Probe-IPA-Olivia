@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: "https://probe-ipa-olivia-8f1ruxu78-olivias-projects-5389bd99.vercel.app/",
 	integrations: [
 		starlight({
 			title: 'metasfresh Dokumentation',
@@ -17,6 +18,7 @@ export default defineConfig({
 			components: {
 				Header: './src/components/CustomHeader.astro',
 				Footer: "./src/components/CustomFooter.astro",
+				  Hero: "./src/components/CustomHero.astro",
 			},
 
 			locales: {
