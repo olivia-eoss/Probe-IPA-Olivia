@@ -1,0 +1,200 @@
+---
+import { Leaf, Box, SlidersHorizontal } from "lucide-astro";
+---
+
+<section class="tiles" aria-labelledby="quickstart-title">
+  <div class="tiles__inner">
+    <div class="tiles__header">
+      <h2 id="quickstart-title">Inhaltsübersicht</h2>
+      <p>Die häufigsten Einstiegspunkte für einen schnellen Start</p>
+    </div>
+
+    <div class="tiles__grid">
+      <!-- Tile 1 -->
+      <a class="tile" href="/einstieg/anmeldung">
+        <div class="tile__icon" aria-hidden="true">
+          <Leaf size={22} />
+        </div>
+
+        <div class="tile__content">
+          <h3 class="tile__title">Einstieg</h3>
+          <p class="tile__text">
+            Einsteig für Anfänger, Grundlagen und erste Schritte
+          </p>
+
+          <div class="tile__badges">
+            <span class="badge badge--green">Anmeldung</span>
+            <span class="badge badge--green">Dashboard</span>
+            <span class="badge badge--green">Einrichtungsassistent</span>
+            <span class="badge badge--green">Shortcuts</span>
+          </div>
+        </div>
+      </a>
+      <!-- Tile 2 -->
+      <a class="tile" href="/stammdaten/benutzerrollen/neuebenutzerrolle/">
+        <div class="tile__icon" aria-hidden="true">
+          <SlidersHorizontal size={22} />
+        </div>
+
+        <div class="tile__content">
+          <h3 class="tile__title">Stammdaten verwalten</h3>
+          <p class="tile__text">Passen Sie das System an Ihre Bedürfnisse an</p>
+
+          <div class="tile__badges">
+            <span class="badge badge--green">Benutzer & Rollen</span>
+            <span class="badge badge--green">Lager & Standorte</span>
+            <span class="badge badge--green">Partner & Organisation</span>
+            <span class="badge badge--green">Produkte & Kategorien</span>
+          </div>
+        </div>
+      </a>
+      <!-- Tile 2 -->
+      <a class="tile" href="/geschaftsprozesse/crm/crm_vorgang_opportunities/">
+        <div class="tile__icon" aria-hidden="true">
+          <Box size={22} />
+        </div>
+
+        <div class="tile__content">
+          <h3 class="tile__title">Geschäftsprozesse</h3>
+          <p class="tile__text">Logische Prozesskette gruppiert</p>
+
+          <div class="tile__badges">
+            <span class="badge badge--green">CRM</span>
+            <span class="badge badge--green">Einkauf</span>
+            <span class="badge badge--green">Finanzen & Mahnwesen</span>
+            <span class="badge badge--green">Verkauf</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Tile 3 -->
+      <a
+        class="tile"
+        href="/erweiterte-funktionen/datenimportexport/datenexport_aus_metasfresh/"
+      >
+        <div class="tile__icon" aria-hidden="true">
+          <SlidersHorizontal size={22} />
+        </div>
+
+        <div class="tile__content">
+          <h3 class="tile__title">Erweiterte Funktionen</h3>
+          <p class="tile__text">Für Admins und Entwickler</p>
+
+          <div class="tile__badges">
+            <span class="badge badge--green">Datenimport und -Export</span>
+            <span class="badge badge--green">Rechte & Sicherheit</span>
+            <span class="badge badge--green">System</span>
+            <span class="badge badge--green">Workflow & Automationen</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tiles {
+    margin-bottom: 80px;
+  }
+
+  .tiles__inner {
+    margin: 0 auto;
+
+    text-align: center;
+  }
+
+  .tiles__grid {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2x2 */
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  /* optional: ab Tablet 1 Spalte */
+  @media (max-width: 900px) {
+    .tiles__grid {
+      grid-template-columns: 1fr;
+    }
+    .tiles__inner {
+      padding: 0 20px;
+    }
+  }
+
+  .tile {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 22px;
+    border: 1.5px solid var(--brand-green);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  }
+
+  .tile__icon {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    color: var(--brand-green);
+  }
+
+  .tile__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--brand-black);
+    line-height: 1.2;
+  }
+
+  .tile__text {
+    margin: 8px 0 0;
+    font-size: 12.5px;
+    line-height: 1.35;
+    color: rgba(55, 55, 55, 0.75);
+  }
+
+  .tile__badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .badge--green {
+    background: rgba(116, 183, 39, 0.22);
+    color: var(--brand-green);
+  }
+
+  @media (max-width: 900px) {
+    .tiles__grid {
+      grid-template-columns: 1fr;
+    }
+    .tiles__inner {
+      padding: 0 20px;
+    }
+  }
+</style>

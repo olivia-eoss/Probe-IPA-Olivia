@@ -1,0 +1,211 @@
+---
+import { HelpCircle, ChevronRight, ChevronDown } from "lucide-astro";
+
+type FaqItem = { question: string; answer: string };
+
+const items: FaqItem[] = [
+  {
+    question: "Wie starte ich mit metasfresh und was sind die ersten Schritte?",
+    answer:
+      "Beginnen Sie im Bereich Einstieg. Dort finden Sie Anleitungen zur Anmeldung, eine Übersicht über das Dashboard sowie den Einrichtungsassistenten für die wichtigsten Grundeinstellungen.",
+  },
+  {
+    question: "Wo finde ich alle Schritte für Tägliche Aufgaben?",
+    answer:
+      "Unter Geschäftsprozess. Dort sind Verkauf, Einkauf, Lager und Rechnungen strukturiert abgelegt.",
+  },
+  {
+    question:
+      "Welche Stammdaten müssen vor dem ersten Arbeiten gepflegt werden?",
+    answer:
+      "Vor dem Start sollten Benutzer, Rollen, Geschäftspartner, Produkte sowie Lager und Standorte eingerichtet werden. Diese finden Sie im Bereich Stammdaten verwalten.",
+  },
+  {
+    question: "Wie hängen Verkauf, Einkauf, Lager und Rechnungen zusammen?",
+    answer:
+      "Diese Bereiche sind als zusammenhängender Prozess aufgebaut. Aktionen im Verkauf oder Einkauf wirken sich automatisch auf Lagerbestände und Rechnungen aus.",
+  },
+  {
+    question:
+      "Wo finde ich erweiterte Funktionen wie Workflows oder Automationen?",
+    answer:
+      "Erweiterte Funktionen stehen im Bereich Erweiterte Funktionen zur Verfügung und richten sich hauptsächlich an Admins und Entwickler.",
+  },
+];
+---
+
+<section class="faq">
+  <div class="faq__head">
+    <HelpCircle class="faq__headIcon" size={26} />
+    <h2 class="faq__title">Häufig gestellte Fragen</h2>
+    <p class="faq__subtitle">Schnelle Antwort auf die wichtigsten Fragen</p>
+  </div>
+
+  <div class="faq__list">
+    {
+      items.map((item, i) => (
+        <div class="faq__item" data-faq-item>
+          <button
+            class="faq__summary"
+            type="button"
+            aria-expanded="false"
+            aria-controls={`faq-panel-${i}`}
+          >
+            <HelpCircle class="faq__qIcon" size={22} />
+            <span class="faq__question">{item.question}</span>
+
+            <ChevronRight class="faq__chev faq__chev--closed" size={22} />
+            <ChevronDown class="faq__chev faq__chev--open" size={22} />
+          </button>
+
+          <div class="faq__answer" id={`faq-panel-${i}`} hidden>
+            {item.answer}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = Array.from(document.querySelectorAll("[data-faq-item]"));
+    if (!items.length) return;
+
+    const closeItem = (el) => {
+      const btn = el.querySelector(".faq__summary");
+      const panel = el.querySelector(".faq__answer");
+      btn?.setAttribute("aria-expanded", "false");
+      panel?.setAttribute("hidden", "");
+      el.classList.remove("is-open");
+    };
+
+    const openItem = (el) => {
+      const btn = el.querySelector(".faq__summary");
+      const panel = el.querySelector(".faq__answer");
+      btn?.setAttribute("aria-expanded", "true");
+      panel?.removeAttribute("hidden");
+      el.classList.add("is-open");
+    };
+
+    items.forEach((item) => {
+      const btn = item.querySelector(".faq__summary");
+      btn?.addEventListener("click", () => {
+        const isOpen = item.classList.contains("is-open");
+
+        // alle anderen schließen
+        items.forEach((other) => {
+          if (other !== item) closeItem(other);
+        });
+
+        // toggle aktuelles
+        if (isOpen) closeItem(item);
+        else openItem(item);
+      });
+    });
+  });
+</script>
+
+<style>
+  .faq {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .faq__head {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    margin-bottom: 34px;
+  }
+
+  .faq__headIcon {
+    color: var(--brand-green);
+  }
+
+  .faq__title {
+    margin: 0;
+  }
+
+  .faq__subtitle {
+    margin: 0;
+    opacity: 0.7;
+  }
+
+  .faq__list {
+    display: grid;
+    gap: 22px;
+    text-align: left;
+  }
+
+  .faq__item {
+    border: 1px solid var(--brand-green);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+
+  /* Button sieht aus wie dein Summary */
+  .faq__summary {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font: inherit;
+  }
+
+  .faq__qIcon {
+    color: var(--brand-green);
+    flex: 0 0 auto;
+  }
+
+  .faq__question {
+    font-size: 18px;
+    line-height: 1.3;
+    flex: 1;
+  }
+
+  .faq__chev {
+    color: var(--brand-orange);
+    flex: 0 0 auto;
+  }
+
+  /* geschlossen: rechter Pfeil */
+  .faq__chev--open {
+    display: none;
+  }
+
+  /* offen: Pfeil nach unten */
+  .faq__item.is-open .faq__chev--open {
+    display: block;
+  }
+  .faq__item.is-open .faq__chev--closed {
+    display: none;
+  }
+
+  .faq__answer {
+    padding: 0 24px 22px 62px;
+    opacity: 0.95;
+  }
+
+  .faq__item.is-open .faq__question {
+    color: var(--brand-green);
+    font-weight: 600;
+  }
+
+  @media (max-width: 700px) {
+    .faq {
+      padding: 52px 20px;
+    }
+    .faq__answer {
+      padding-left: 24px;
+    }
+  }
+</style>
