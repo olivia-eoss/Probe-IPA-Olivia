@@ -25,6 +25,34 @@
     margin-top: 48px;
   }
 
+  a {
+    color: var(--brand-white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition:
+      color 0.25s ease,
+      opacity 0.25s ease,
+      text-underline-offset 0.25s ease;
+  }
+
+  a:hover {
+    color: var(--brand-orange);
+  }
+
+  .ms-footer__right {
+    display: flex;
+    gap: 24px; /* ↔️ Abstand zwischen Links */
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .ms-footer__right {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px; /* ↕️ Abstand bei Stack */
+    }
+  }
+
   /* 2) Inhalt sauber zentriert */
   .ms-footer__inner {
     margin: 0 auto;

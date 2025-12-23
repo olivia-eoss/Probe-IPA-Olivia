@@ -33,7 +33,12 @@ body {
   font-family: var(--font-sans);
 }
 
-.sl-markdown-content h1 {
+body .hero {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+h1 {
   font-size: 40px;
   font-weight: 700;
 }
@@ -48,7 +53,7 @@ body {
   font-weight: 600;
 }
 
-.sl-markdown-content p {
+p {
   font-size: 18px;
 }
 
@@ -94,5 +99,67 @@ body {
     height: auto;     
 }
 
+.hero-home-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;   /* Abstand unter Titel/Tagline */
+}
 
 
+
+/* Button Styles */
+  .ms-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 11px 32px;
+    border-radius: 0.4rem;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  /* Farbvarianten */
+  .ms-btn--orange {
+    background: var(--brand-orange);
+    color: #fff;
+  }
+
+  .ms-btn--green {
+    background: var(--brand-green);
+    color: #fff;
+  }
+
+  .ms-btn--white {
+    background: var(--brand-white);
+    color: var(--brand-green);
+  }
+
+  /* Hover */
+  .ms-btn--orange:hover {
+    background: var(--brand-orange-36);
+    color: var(--brand-orange);
+  }
+
+  .ms-btn--white:hover {
+    background: var(--brand-orange-36);
+    color: var(--brand-orange);
+  }
+
+
+  /* Icons */
+  .ms-btn :global(svg) {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
