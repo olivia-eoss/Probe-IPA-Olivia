@@ -41,6 +41,7 @@ body .hero {
 h1 {
   font-size: 40px;
   font-weight: 700;
+  color: var(--brand-green);
 }
 
 .sl-markdown-content h2 {
