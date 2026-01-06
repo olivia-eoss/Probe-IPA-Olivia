@@ -16,7 +16,6 @@
 </footer>
 
 <style>
-  /* 1) Grüner Balken über ganze Seite */
   .ms-footer {
     background: var(--brand-green);
     color: #fff;
@@ -46,11 +45,10 @@
     .ms-footer__right {
       flex-direction: column;
       align-items: flex-start;
-      gap: 12px; /* ↕️ Abstand bei Stack */
+      gap: 12px;
     }
   }
 
-  /* 2) Inhalt sauber zentriert */
   .ms-footer__inner {
     margin: 0 auto;
     padding: 28px 48px;
@@ -60,7 +58,6 @@
     gap: 24px;
   }
 
-  /* 3) Wenn Sidebar da ist: links extra Platz, damit Text nicht “unter” Sidebar sitzt */
   html[data-has-sidebar] .ms-footer__inner {
     max-width: 1400px;
   }
