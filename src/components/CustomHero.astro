@@ -2,6 +2,7 @@
 import Button from "./Button.astro";
 import { Image } from "astro:assets";
 import icon from "../assets/icon.png";
+import Ilu from "../assets/He.svg";
 
 const { pathname } = Astro.url;
 
@@ -9,34 +10,70 @@ const { pathname } = Astro.url;
 const isHome = pathname === "/" || pathname === "/index";
 ---
 
-{
-  isHome && (
-    <section class="custom-hero">
-      <div class="custom-hero__content">
-        <h1>Anleitungen, Prozesse und Konfigurationen</h1>
-        <p class="custom-hero__tagline">metasfresh Dokumentation</p>
+<section class="hero-bleed">
+  <div class="hero-inner">
+    {
+      isHome && (
+        <section class="custom-hero">
+          <div class="custom-hero__content">
+            <h1>Mitgliederverwaltung mit metasfresh</h1>
+            <p class="custom-hero__tagline">
+              Schritt-für-Schritt-Anleitungen für die strukturierte Verwaltung
+              Ihrer Mitglieder, Rechnungen und Zahlungen. Verstehen Sie
+              Workflows, automatisieren Sie Prozesse und behalten Sie jederzeit
+              den Überblick über Ihre ERP-Daten.
+            </p>
 
-        <div class="custom-hero__actions">
-          <Button href="/einstieg/anmeldung/" variant="green">
-            Für Anwender starten
-          </Button>
-          <Button
-            href="/erweitertefunktionen/datenimportexport/datenexport_aus_metasfresh/"
-            variant="orange"
-          >
-            Für Administratoren & Entwickler starten
-          </Button>
-        </div>
-      </div>
+            <div class="custom-hero__actions">
+              <Button href="/einstieg/anmeldung/" variant="green">
+                Für Anwender starten
+              </Button>
+              <Button
+                href="/erweitertefunktionen/datenimportexport/datenexport_aus_metasfresh/"
+                variant="orange"
+              >
+                Für Administratoren & Entwickler starten
+              </Button>
+            </div>
+          </div>
 
-      <div class="custom-hero__image" aria-hidden="true">
-        <Image src={icon} alt="" class="custom-hero__image-img" />
-      </div>
-    </section>
-  )
-}
+          <div class="custom-hero__image" aria-hidden="true">
+            <Ilu class="custom-hero__image-img" />
+          </div>
+        </section>
+      )
+    }
+  </div>
+</section>
 
 <style>
+  /* ✅ Nur der Wrapper darf aus dem Starlight-Container ausbrechen */
+  :global(.sl-container > .hero-bleed) {
+    max-width: none;
+    padding: 0;
+  }
+
+  /* ✅ Full-width Bühne (Hintergrund/Fläche) */
+  .hero-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: clamp(1.25rem, 4vw, 2.5rem) 0; /* nur vertikal */
+    background-color: #eaf4ff; /* hellblau */
+  }
+
+  .content-panel:where(.astro-7nkwcw3z) {
+    padding: 0 !important;
+  }
+
+  /* ✅ Hier stellst du ein, wie „schmal“ der Hero wirken soll */
+  .hero-inner {
+    max-width: 1300px; /* <- ändere auf 1100 / 1150 / 1200 / 1300 */
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* ✅ Dein Hero bleibt normal (KEIN 100vw mehr hier!) */
   .custom-hero {
     display: flex;
     align-items: center;
@@ -46,8 +83,6 @@ const isHome = pathname === "/" || pathname === "/index";
     padding: clamp(1.25rem, 4vw, 5rem);
     background-color: var(--color-background-light);
     border-radius: 8px;
-
-    /* Das ist der Abstand zur Inhaltsübersicht */
     margin-bottom: 1.25rem;
   }
 
@@ -81,24 +116,21 @@ const isHome = pathname === "/" || pathname === "/index";
   }
 
   .custom-hero__image-img {
-    width: clamp(140px, 18vw, 250px);
+    width: clamp(170px, 33vw, 450px);
     height: auto;
     max-width: 100%;
   }
 
-  /* Tablet: kompakter + Icon weg */
   @media (max-width: 900px) {
     .custom-hero {
       padding: 1.5rem;
       margin-bottom: 1rem;
     }
-
     .custom-hero__image {
       display: none !important;
     }
   }
 
-  /* Mobile: untereinander + Buttons full width + super kompakt */
   @media (max-width: 700px) {
     .custom-hero {
       flex-direction: column;
@@ -107,10 +139,6 @@ const isHome = pathname === "/" || pathname === "/index";
       padding: 1.25rem !important;
       margin-bottom: 0.75rem !important;
       gap: 0.75rem !important;
-    }
-
-    .custom-hero__content {
-      max-width: 100% !important;
     }
 
     .custom-hero__actions {
@@ -124,9 +152,80 @@ const isHome = pathname === "/" || pathname === "/index";
     }
 
     .custom-hero__content {
-      flex: initial !important; /* entfernt 1 1 520px */
-      min-width: 0 !important;
       width: 100% !important;
+    }
+  }
+
+  /* SVG darf überlaufen, sonst sieht man die Bewegung kaum */
+  .custom-hero__image {
+    overflow: visible;
+  }
+
+  /* Die ganze Illustration schwebt minimal */
+  .custom-hero__image :global(svg) {
+    overflow: visible;
+    transform-origin: center;
+  }
+
+  /* jede Karte: leichtes Float */
+  .custom-hero__image :global(#card-user),
+  .custom-hero__image :global(#card-statistic),
+  .custom-hero__image :global(#card-status),
+  .custom-hero__image :global(#card-chart),
+  .custom-hero__image :global(#card-flow),
+  .custom-hero__image :global(#card-plus) {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* kleine Unterschiede (damit es “lebt”) */
+  .custom-hero__image :global(#card-user) {
+    animation-duration: 6.2s;
+  }
+  .custom-hero__image :global(#card-statistic) {
+    animation-duration: 7.3s;
+    animation-delay: -1s;
+  }
+  .custom-hero__image :global(#card-status) {
+    animation-duration: 5.8s;
+    animation-delay: -2s;
+  }
+  .custom-hero__image :global(#card-chart) {
+    animation-duration: 7.8s;
+    animation-delay: -1.5s;
+  }
+  .custom-hero__image :global(#card-flow) {
+    animation-duration: 6.6s;
+    animation-delay: -0.7s;
+  }
+  .custom-hero__image :global(#card-plus) {
+    animation-duration: 5.9s;
+    animation-delay: -1.2s;
+  }
+
+  /* optional: Verbindungslinien “pulsieren” */
+  .custom-hero__image :global(#main > #Group) {
+    animation: pulse 4.5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.22;
+    }
+    50% {
+      opacity: 0.38;
     }
   }
 </style>
